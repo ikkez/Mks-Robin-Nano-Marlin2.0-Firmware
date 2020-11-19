@@ -674,19 +674,19 @@
   #define DELTA_DIAGONAL_ROD 280.0        // (mm) 
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT 377.13             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT 379.09             // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_ENDSTOP_ADJ { 0.0, -4.03, -4.23 } // Get these values from G33 auto calibrate
+  // #define DELTA_ENDSTOP_ADJ { 0.0, -4.03, -4.23 } // Get these values from G33 auto calibrate
+  #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
-  #define DELTA_RADIUS 146.01              // (mm) Get this value from G33 auto calibrate
-
+  #define DELTA_RADIUS 142.24              // (mm) Get this value from G33 auto calibrate
+  //#define DELTA_RADIUS 146.01
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { -1.59 , 2.81, -1.22 } // Get these values from G33 auto calibrate
-  
+  #define DELTA_TOWER_ANGLE_TRIM { 0 , 0, 0} // Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments (mm)
   //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
@@ -834,18 +834,18 @@
 
 // delta speeds must be the same on xyz
 #define DEFAULT_XYZ_STEPS_PER_UNIT ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH))
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 90 }  // default steps per unit
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 138.08 }  // default steps per unit
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 500, 50 }
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 500, 500 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 600, 500 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 700, 700, 700, 700 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1109,11 +1109,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 30, 18, -1.5 }
+#define NOZZLE_TO_PROBE_OFFSET { 30, 18.6, -1.9 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 35
+#define PROBING_MARGIN 60
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_SPEED (66*60)
@@ -1216,7 +1216,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
